@@ -1,0 +1,6 @@
+version: '3'
+services:
+  canvas:
+    image: instructure/canvas-lms:master
+    ports:
+      - 8080:8000
