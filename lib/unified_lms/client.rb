@@ -10,6 +10,10 @@ module UnifiedLms
     def authenticate
       raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
     end
+    
+    def build_header
+      raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
+    end
 
     def self.create_client(type)
       case type
