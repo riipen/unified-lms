@@ -5,3 +5,7 @@ gem 'rack', '~> 2.2.4'
 gem 'rspec'
 gem 'simplecov'
 gem 'pry'
+gem "faraday"
+gem "bundler"
+gem "rubocop"
+gem "webmock"
