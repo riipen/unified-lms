@@ -10,5 +10,5 @@ Gem::Specification.new do |spec|
   # All dependencies treated as runtime dependencies
   spec.add_dependency "faraday"
   spec.add_dependency "rspec"
-
+  spec.add_dependency "webmock"
 end
