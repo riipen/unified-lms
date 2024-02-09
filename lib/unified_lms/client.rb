@@ -15,11 +15,11 @@ module UnifiedLms
       raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
     end
 
-    def self.create_client(type)
+    def self.create_client(type, **params)
       case type
       when :canvas
         require_relative "canvas_client"
-        CanvasClient.new
+        CanvasClient.new(**params)
       when :blackboard
         require_relative "blackboard_client"
         BlackboardClient.new
