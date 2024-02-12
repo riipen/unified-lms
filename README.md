@@ -16,7 +16,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 # Usage
 
 ### Authenticate
-    
+```
 canvas_client = UnifiedLms::Client.new(
     :canvas
     :url
@@ -26,9 +26,12 @@ canvas_client = UnifiedLms::Client.new(
 )
 
 canvas_client.authenticate
+```
 
 ### Get students
+```
 canvas_client.get_students(:course_id)
+```
 
 ## Development
 
