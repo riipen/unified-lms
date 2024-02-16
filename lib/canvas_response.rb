@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "unified_lms/version"
+require_relative "unified_lms/error"
 
 module UnifiedLms
   # Concrete response parser class for canvas API requests
