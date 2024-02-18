@@ -50,7 +50,7 @@ module UnifiedLms
         c.headers['User-Agent'] =
           "Unified_LMS/#{VERSION} (#{RUBY_ENGINE}#{RUBY_VERSION})"
 
-        Request.create_request(type, **params).build_request("connection")
+        Request.create_request(type, **params).build_request(c)
       end
     end
   end
