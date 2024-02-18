@@ -35,8 +35,8 @@ module UnifiedLms
         headers&.each_pair { |k, v| request.headers[k] = v }
       end
 
-      # # error = Error.from_response(response)
-      # # raise error if error
+      error = Error.from_response(response)
+      raise error if error
 
       response.body
     end
