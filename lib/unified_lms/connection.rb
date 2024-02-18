@@ -2,6 +2,7 @@
 
 require 'faraday'
 require 'faraday_middleware'
+require_relative 'request'
 
 module UnifiedLms
   module Connection
@@ -29,14 +30,16 @@ module UnifiedLms
 
     def request(method, path, params)
       headers = params.delete(:headers)
-      response = connection.public_send(method, path, params) do |request|
-        headers&.each_pair { |k, v| request.headers[k] = v }
-      end
+      Request.create_request(:canvas, token: @token).build_request("connection")
 
-      # error = Error.from_response(response)
-      # raise error if error
-
-      response.body
+      # response = connection.public_send(method, path, params) do |request|
+      #   headers&.each_pair { |k, v| request.headers[k] = v }
+      # end
+      #
+      # # error = Error.from_response(response)
+      # # raise error if error
+      #
+      # response.body
     end
 
     # TODO: make this generic since this includes the bearer just for Canvas
@@ -48,8 +51,10 @@ module UnifiedLms
         c.adapter Faraday.default_adapter
         c.headers['User-Agent'] =
           "Unified_LMS/#{VERSION} (#{RUBY_ENGINE}#{RUBY_VERSION})"
-        c.request :authorization, 'Bearer', @token if @token
 
+        Request.create_request(:canvas).build_request(connection)
+
+        # c.request :authorization, 'Bearer', @token if @token
       end
     end
   end

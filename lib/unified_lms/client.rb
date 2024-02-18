@@ -7,6 +7,7 @@ module UnifiedLms
   # All methods available for the user will be defined here.
   class Client
     include Connection
+
     def authenticate
       raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
     end
