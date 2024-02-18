@@ -6,43 +6,41 @@ require_relative 'request'
 
 module UnifiedLms
   module Connection
-    def get(path, **params)
-      request(:get, path, params)
+    def get(path, type, **params)
+      request(:get, path, type, **params)
     end
 
-    def post(path, **params)
-      request(:post, path, params)
+    def post(path, type, **params)
+      request(:post, path, type, **params)
     end
 
-    def put(path, **params)
-      request(:put, path, params)
+    def put(path, type, **params)
+      request(:put, path, type, **params)
     end
 
-    def delete(path, **params)
-      request(:delete, path, params)
+    def delete(path, type, **params)
+      request(:delete, path, type, **params)
     end
 
-    def head(path, **params)
-      request(:head, path, params)
+    def head(path, type, **params)
+      request(:head, path, type, **params)
     end
 
     private
 
-    def request(method, path, params)
+    def request(method, path, type, **params)
       headers = params.delete(:headers)
-      Request.create_request(:canvas, token: @token).build_request("connection")
 
-      # response = connection.public_send(method, path, params) do |request|
-      #   headers&.each_pair { |k, v| request.headers[k] = v }
-      # end
-      #
+      response = connection.public_send(method, path, params) do |request|
+        headers&.each_pair { |k, v| request.headers[k] = v }
+      end
+
       # # error = Error.from_response(response)
       # # raise error if error
-      #
-      # response.body
+
+      response.body
     end
 
-    # TODO: make this generic since this includes the bearer just for Canvas
     def connection
       @connection ||= Faraday.new(url: @url) do |c|
         c.request :json, content_type: /\bjson$/
@@ -52,9 +50,7 @@ module UnifiedLms
         c.headers['User-Agent'] =
           "Unified_LMS/#{VERSION} (#{RUBY_ENGINE}#{RUBY_VERSION})"
 
-        Request.create_request(:canvas).build_request(connection)
-
-        # c.request :authorization, 'Bearer', @token if @token
+        Request.create_request(type, **params).build_request("connection")
       end
     end
   end

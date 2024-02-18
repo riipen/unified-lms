@@ -8,14 +8,12 @@ module UnifiedLms
   class Client
     include Connection
 
+    # Auth abstract for client factory
     def authenticate
       raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
     end
-    
-    def build_header
-      raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
-    end
 
+    # Create a new Client Factory
     def self.create_client(type, **params)
       case type
       when :canvas
