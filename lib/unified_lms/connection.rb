@@ -31,14 +31,14 @@ module UnifiedLms
     def request(method, path, type, **params)
       headers = params.delete(:headers)
 
-      response = connection.public_send(method, path, params) do |request|
-        headers&.each_pair { |k, v| request.headers[k] = v }
-      end
-
-      error = Error.from_response(response)
-      raise error if error
-
-      response.body
+      # response = connection.public_send(method, path, params) do |request|
+      #   headers&.each_pair { |k, v| request.headers[k] = v }
+      # end
+      #
+      # error = Error.from_response(response)
+      # raise error if error
+      #
+      # response.body
     end
 
     def connection

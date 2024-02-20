@@ -13,9 +13,29 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
-## Usage
+# Usage
 
-TODO: Write usage instructions here
+### Authenticate
+```ruby
+# Authenticating with client id and secret
+canvas_client = UnifiedLms::Client.new(
+    :canvas
+    :url
+    :client_id
+    :client_secret
+    :redirect_uri
+)
+canvas_client.authenticate
+
+# Authenticating directly with token
+canvas_client = UnifiedLms::Client.create_client(:canvas, token: token)
+canvas_client.authenticate
+```
+
+### Get students
+```ruby
+canvas_client.get_students(:course_id)
+```
 
 ## Development
 
