@@ -8,8 +8,8 @@ module UnifiedLms
     def self.create_request(type, **params)
       case type
       when :canvas
-        require_relative 'canvas_request'
-        CanvasRequest.new(**params)
+        require_relative 'bearer_token'
+        BearerToken.new(**params)
       when :blackboard
         puts "Blackboard Request"
       else

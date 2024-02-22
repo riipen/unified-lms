@@ -3,7 +3,7 @@
 module UnifiedLms
 
   # Concrete request builder class for canvas API requests
-  class CanvasRequest < Request
+  class BearerToken < Request
     def initialize(**params)
       @token = params.delete(:token)
     end
