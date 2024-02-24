@@ -10,8 +10,8 @@ module UnifiedLms
   # All methods available for the user will be defined here.
   class CanvasClient < Client
 
-    # @param [nil] client_id
     def initialize(redirect_uri: nil, client_id: nil, client_secret: nil, token: nil)
+      @url = "https://canvas.instructure.com"
       @grant_type = "authorization_code"
       @client_id = client_id
       @client_secret = client_secret
@@ -39,7 +39,7 @@ module UnifiedLms
     end
 
     def get_students(**params)
-      get("https://canvas.instructure.com/api/v1/courses", :canvas, token: @token)
+      get("/api/v1/courses", :canvas, token: @token)
     end
   end
 end
