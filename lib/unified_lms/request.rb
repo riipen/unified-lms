@@ -5,11 +5,11 @@ module UnifiedLms
   # This class will send the request after it is built by the proper concrete LMS request class
   class Request
     # Factory to create headers for a request
-    def self.create_request(type, **params)
+    def self.create_request(type)
       case type
       when :canvas
         require_relative 'bearer_token'
-        BearerToken.new(**params)
+        BearerToken.new
       when :blackboard
         puts "Blackboard Request"
       else

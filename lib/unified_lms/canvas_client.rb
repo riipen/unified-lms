@@ -11,15 +11,13 @@ module UnifiedLms
   class CanvasClient < Client
 
     # @param [nil] client_id
-    def initialize(url: nil, client_id: nil, client_secret: nil, token: nil, redirect_uri: nil)
-      @url = url
+    def initialize(redirect_uri: nil, client_id: nil, client_secret: nil, token: nil)
       @grant_type = "authorization_code"
       @client_id = client_id
       @client_secret = client_secret
       @token = token
       @redirect_uri = redirect_uri
       @code = nil
-      puts @token
     end
 
     # Authenticate with canvas is order to get the final token for request
@@ -38,6 +36,10 @@ module UnifiedLms
         params = {grant_type: @grant_type, client_secret: @client_secret, code: @code}.merge(params)
         @token = post("/login/oauth2/token", :canvas, **params)
       end
+    end
+
+    def get_students(**params)
+      get("https://canvas.instructure.com/api/v1/courses", :canvas, token: @token)
     end
   end
 end

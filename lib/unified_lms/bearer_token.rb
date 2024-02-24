@@ -4,13 +4,10 @@ module UnifiedLms
 
   # Concrete request builder class for canvas API requests
   class BearerToken < Request
-    def initialize(**params)
-      @token = params.delete(:token)
-    end
 
     # Get a connection from Faraday to add a bearer token in the header
-    def build_request(connection)
-      connection.request :authorization, 'Bearer', @token if @token
+    def build_request(connection, **params)
+      connection.request :authorization, 'Bearer', params.delete(:token)
     end
   end
 end
