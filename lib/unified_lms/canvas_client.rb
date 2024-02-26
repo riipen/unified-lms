@@ -37,9 +37,5 @@ module UnifiedLms
         @token = post("/login/oauth2/token", :canvas, **params)
       end
     end
-
-    def get_students(**params)
-      get("/api/v1/courses", :canvas, token: @token)
-    end
   end
 end
