@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Metabase
+module UnifiedLms
   module EndpointCanvas
     module StudentCanvas
       # Fetch a paginated list of students enrolled in this course.
