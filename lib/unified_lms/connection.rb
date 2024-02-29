@@ -3,6 +3,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require_relative 'request'
+require_relative 'response'
 require_relative 'error'
 
 module UnifiedLms
@@ -39,7 +40,7 @@ module UnifiedLms
       error = Error.from_response(response)
       raise error if error
 
-      response.body
+      Response.parse_response(type).build_response(response.body, **params)
     end
 
     def connection(type, **params)
