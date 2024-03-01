@@ -9,8 +9,16 @@ module UnifiedLms
   # the string representation of the response
   class Response
     # To be implemented in all aggregate classes of Response to parse the responce expected by an LMS
-    def parse_response
-      raise NotImplementedError, "#{self.class} has not implemented method '#{__method__}'"
+    def self.parse_response(type)
+      case type
+      when :canvas
+        require_relative 'json_parser'
+        BearerToken.new
+      when :blackboard
+        puts "blackboard_response"
+      else
+        raise ArgumentError, "Invalid request type"
+      end
     end
   end
 end
