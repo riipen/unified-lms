@@ -52,6 +52,7 @@ module UnifiedLms
           "Unified_LMS/#{VERSION} (#{RUBY_ENGINE}#{RUBY_VERSION})"
 
         Request.create_request(type).build_request(c, **params)
+        Response.parse_response(type).parse(response)
       end
     end
   end
