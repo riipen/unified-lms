@@ -60,3 +60,12 @@ build-iPhoneSimulator/
 
 # Common Ruby/Rails
 Gemfile.lock
+
+# Jetbrains Files
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
