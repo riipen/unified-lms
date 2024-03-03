@@ -11,11 +11,6 @@ module UnifiedLms
         # Parse the JSON string
         data = JSON.parse(response)
 
-        #iterates over array json response
-        data.each do |item|
-          puts item
-        end
-
         return data
 
       rescue JSON::ParserError => e
