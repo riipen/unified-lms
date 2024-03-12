@@ -15,7 +15,7 @@ module UnifiedLms
         require_relative 'json_parser'
         BearerToken.new
       when :blackboard
-        puts "blackboard_response"
+        require_relative 'blackboard_response'
       else
         raise ArgumentError, "Invalid request type"
       end
