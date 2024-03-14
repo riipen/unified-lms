@@ -24,7 +24,8 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi/Learn?_gl=1*a4tvl2*_ga*NDEzMzIwNDQ1LjE3MDkxNjg2MDM.*_ga_GSZJ2M400B*MTcwOTE2ODYwMy4xLjAuMTcwOTE2ODYwMy42MC4wLjA.
       def get_students(**params)
-        get("/learn/api/public/v1/courses/#{params[:course_id]}/users", **params)
+        response = get("/learn/api/public/v1/courses/#{params[:course_id]}/users", **params)
+        BlackboardResponse.parse_get_students(response)
       end
     end
   end

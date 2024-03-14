@@ -6,8 +6,8 @@ module UnifiedLms
   # Concrete response parser class for blackboard API requests
   class BlackboardResponse < Response
     # Given the specified parameters parses the response comming from blackboard API
-    def parse(response, path, **params)
-      parsed = JSON.parse(response)
+    def parse_get_students(response)
+      parsedJSON = JSON.parse(response)
     end
   end
 end

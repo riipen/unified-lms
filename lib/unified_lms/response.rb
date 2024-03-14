@@ -16,6 +16,7 @@ module UnifiedLms
         BearerToken.new
       when :blackboard
         require_relative 'blackboard_response'
+        BlackboardResponse.new
       else
         raise ArgumentError, "Invalid request type"
       end
