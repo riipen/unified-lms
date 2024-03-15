@@ -9,7 +9,7 @@ module UnifiedLms
   # The controller class for the user.
   # All methods available for the user will be defined here.
   class CanvasClient < Client
-    include CanvasEndpoint
+    include EndpointCanvas
 
     def initialize(redirect_uri: nil, client_id: nil, client_secret: nil, token: nil)
       @url = "https://canvas.instructure.com"
