@@ -20,6 +20,7 @@ module UnifiedLms
       # @param params [Hash] Query string
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
+      def get_submission(**params)
         get("/learn/api/public/v1/attemptReceipts/#{params[:attemptReceiptId]}", **params)
       end
     end

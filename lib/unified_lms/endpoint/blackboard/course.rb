@@ -16,6 +16,7 @@ module UnifiedLms
       # @param params [Hash] Query string
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
+      def get_courses(**params)
         get("/learn/api/public/v3/courses", **params)
       end
     end
