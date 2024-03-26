@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'json'
 
 module UnifiedLms
   module ParserCanvas
@@ -10,7 +11,7 @@ module UnifiedLms
     def self.get_students(data)
       main_student_data = []
 
-      data.each do |student|
+      JSON.parse(data).each do |student|
         main_student_data << {
           id: student[:id],
           name: student[:name],

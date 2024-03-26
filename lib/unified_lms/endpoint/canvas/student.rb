@@ -13,10 +13,7 @@ module UnifiedLms
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.students
       def get_students(**params)
         data = get("/api/v1/courses/#{params[:course_id]}/students", **params)
-
-        parsed_data = JSON.parse(data)
-
-        ParserCanvas.get_students(parsed_data)
+        ParserCanvas.get_students(data)
       end
     end
   end
