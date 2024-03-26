@@ -3,12 +3,13 @@ require 'cgi'
 
 require_relative "version"
 require_relative "client"
+require_relative "canvas_endpoint"
 
 module UnifiedLms
-
   # The controller class for the user.
   # All methods available for the user will be defined here.
   class CanvasClient < Client
+    include EndpointCanvas
 
     def initialize(redirect_uri: nil, client_id: nil, client_secret: nil, token: nil)
       @url = "https://canvas.instructure.com"
