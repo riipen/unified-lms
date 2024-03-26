@@ -7,10 +7,12 @@
 
 require_relative "version"
 require_relative "error"
+require_relative "../../parser/blackboard/student"
 
 module UnifiedLms
   module EndpointBlackboard
     module StudentBlackboard
+    include ParserBlackboard
       # Returns a list of user memberships for the specified course or organization.
       # Callers not enrolled in the course must have at least one of the following entitlements:
       # For courses: 'course.user.VIEW', 'system.user.course.enrollment.VIEW', or 'system.courseuserlist.VIEW'
