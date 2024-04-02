@@ -5,7 +5,6 @@ RSpec.describe BlackboardClient do
     it 'return announcements list from the blackboard LMS' do
       # Setup
       blackboard_client = BlackboardClient.new
-      course_id = 123
       mock_response = {
         "results": [
           {
