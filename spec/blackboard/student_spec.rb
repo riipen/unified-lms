@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 RSpec.describe BlackboardClient do
-  describe '#get_student_details' do
+  describe '#get_students' do
     it 'returns details for a specific student' do
       # Setup
       blackboard_client = BlackboardClient.new
