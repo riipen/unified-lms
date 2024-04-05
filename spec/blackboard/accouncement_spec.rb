@@ -36,6 +36,7 @@ RSpec.describe BlackboardClient do
 
       # Verify
       expect(announcements.first['id']).to eq("string")
+      expect(announcements.first['creatorUserId']).to eq("string")
     end
   end
 end
