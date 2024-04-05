@@ -14,14 +14,15 @@ RSpec.describe BlackboardClient do
             "availability": {
               "duration": {
                 "type": "Permanent",
-                "start": "2024-03-30T04:55:34.497Z",
-                "end": "2024-03-30T04:55:34.497Z"
+                "start": "2024-04-05T03:21:20.607Z",
+                "end": "2024-04-05T03:21:20.607Z"
               }
             },
             "showAtLogin": true,
             "showInCourses": true,
-            "created": "2024-03-30T04:55:34.497Z",
-            "modified": "2024-03-30T04:55:34.497Z"
+            "creatorUserId": "string",
+            "created": "2024-04-05T03:21:20.607Z",
+            "modified": "2024-04-05T03:21:20.607Z"
           }
         ],
         "paging": {
