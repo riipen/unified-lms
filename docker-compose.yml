@@ -1,6 +1,7 @@
-version: '3'
+version: '22.04'
 services:
   canvas:
-    image: instructure/canvas-lms:master
+    image: canvas_test:latest
+    command: sleep infinity
     ports:
-      - 8080:8000
+      - 80:80
