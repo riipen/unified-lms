@@ -11,7 +11,7 @@ module UnifiedLms
     def self.get_courses(data)
       main_course_data = []
 
-      JSON.parse(data).each do |cpurse|
+      JSON.parse(data).each do |course|
         main_student_data << {
           id: 1,
           name: "Default Term",
