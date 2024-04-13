@@ -4,4 +4,4 @@ services:
     image: canvas_test:latest
     command: sleep infinity
     ports:
-      - 80:80
+      - :2375
