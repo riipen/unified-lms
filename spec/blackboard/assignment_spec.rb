@@ -5,7 +5,7 @@ RSpec.describe BlackboardClient do
     it 'returns assignment list from Canvas LMS' do
 
       let(:course_id) { '_123_1' }
-      let(:base_url) { "/api/v1/courses/#{course_id}/content" }
+      let(:base_url) { "/api/v1/courses/#{course_id}/contents" }
       let(:response) { [{ 'id' => '456', 'title' => 'Introduction' }] }
 
       before do
