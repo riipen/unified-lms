@@ -35,7 +35,9 @@ RSpec.describe BlackboardClient do
           expect(subject).to receive(:get).with(base_url, expected_params)
           subject.get_content_items(course_id: course_id, **date_params)
 
-          end
+        end
+      end
+
     end
   end
 end
