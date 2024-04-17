@@ -1,6 +1,5 @@
 require 'rspec'
 require 'webmock/rspec'
-require_relative 'course.rb'
 
 describe 'get_courses' do
   before do
