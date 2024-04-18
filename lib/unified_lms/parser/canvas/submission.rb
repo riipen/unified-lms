@@ -24,7 +24,7 @@ module UnifiedLms
       end
 
       # Serialize consolidated data
-      render json: main_student_data
+      render json: main_submission_data
     end
   end
 end
