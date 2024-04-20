@@ -7,7 +7,7 @@
 
 require_relative "version"
 require_relative "error"
-require_relative "../../parser/blackboard/announcement"
+require_relative "../../parser/blackboard/course"
 
 module UnifiedLms
   module EndpointBlackboard
