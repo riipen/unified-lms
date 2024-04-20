@@ -13,7 +13,9 @@ module UnifiedLms
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.students
       def get_students(**params)
         params = { enrollment_type: "student" }.merge(params)
-        get("/api/v1/courses/#{params[:course_id]}/users", **params)
+        data = get("/api/v1/courses/#{params[:course_id]}/students", **params)
+        json_data = JSON.parse(data)
+        ParserCanvas.get_students(json_data)
       end
     end
   end
