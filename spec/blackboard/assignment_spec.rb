@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 RSpec.describe BlackboardClient do
-  describe '#get announcements' do
-    it 'return announcements list from the blackboard LMS' do
+  describe '#get assignments' do
+    it 'return assignments list from the blackboard LMS' do
       # Setup
       blackboard_client = BlackboardClient.new
-      course_id = 123
       mock_response = {
         "results": [
           {
@@ -30,12 +29,12 @@ RSpec.describe BlackboardClient do
         }
       }
 
-      allow(blackboard_client).to receive(:get_announcement).and_return(mock_response)
+      allow(blackboard_client).to receive(:get_assignments).and_return(mock_response)
 
-      announcements = blackboard_client.get_announcements
+      assignments = blackboard_client.get_assignments
 
       # Verify
-      expect(announcements.first['id']).to eq("string")
+      expect(assignments.first['id']).to eq("string")
     end
   end
 end
