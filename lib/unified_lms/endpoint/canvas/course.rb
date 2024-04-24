@@ -11,7 +11,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.index
       def get_courses(**params)
-        data = get("/api/v1/courses", **params)
+        get("/api/v1/courses", :canvas, **params)
         ParserCanvas::get_courses(data)
       end
     end

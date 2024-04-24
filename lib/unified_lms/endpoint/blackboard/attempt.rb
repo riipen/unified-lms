@@ -23,7 +23,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_submission(**params)
-        data = get("/learn/api/public/v1/attemptReceipts/#{params[:attemptReceiptId]}", **params)
+        get("/learn/api/public/v1/attemptReceipts/#{params[:attemptReceiptId]}", :blackboard, **params)
         ParserBlackboard::get_submission(data)
       end
     end

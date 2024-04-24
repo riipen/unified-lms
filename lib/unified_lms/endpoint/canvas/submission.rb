@@ -11,7 +11,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.submissions_api.show
       def get_submission(**params)
-        data = get("/api/v1/courses/#{params[:course_id]}/assignments/#{params[:assignment_id]}/submissions/#{params[:user_id]}", **params)
+        get("/api/v1/courses/#{params[:course_id]}/assignments/#{params[:assignment_id]}/submissions/#{params[:user_id]}", :canvas, **params)
         ParserCanvas::get_submission(data)
       end
     end

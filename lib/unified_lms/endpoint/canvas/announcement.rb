@@ -11,7 +11,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.announcements_api.index
       def get_announcements(**params)
-        data = get("/api/v1/announcements", **params)
+        get("/api/v1/announcements", :canvas, **params)
         ParserCanvas::get_announcements(data)
       end
     end

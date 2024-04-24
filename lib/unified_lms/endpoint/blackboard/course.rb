@@ -19,7 +19,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_courses(**params)
-        data = get("/learn/api/public/v3/courses", **params)
+        get("/learn/api/public/v3/courses", :blackboard, **params)
         ParserBlackboard::get_courses(data)
       end
     end

@@ -9,7 +9,7 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.assignments_api.index
       def get_assignments(**params)
-        get("/api/v1/courses/#{params[:course_id]}/assignments", **params)
+        get("/api/v1/courses/#{params[:course_id]}/assignments", :canvas, **params)
       end
     end
   end
