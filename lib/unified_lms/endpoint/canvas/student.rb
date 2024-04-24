@@ -14,6 +14,8 @@ module UnifiedLms
       def get_students(**params)
         params = { enrollment_type: "student" }.merge(params)
         get("/api/v1/courses/#{params[:course_id]}/users", :canvas, **params)
+        json_data = JSON.parse(data)
+        ParserCanvas.get_students(json_data)
       end
     end
   end
