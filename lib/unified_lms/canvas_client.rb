@@ -23,7 +23,7 @@ module UnifiedLms
 
     # Authenticate with canvas is order to get the final token for request
     def authenticate(**params)
-      if (@token.nil?)
+      if @token.nil?
         # get code from canvas
         params = {client_id: @client_id, response_type: "code", redirect_uri: @redirect_uri}.merge(params)
         get_response = get("login/oauth2/auth", :canvas, **params)
