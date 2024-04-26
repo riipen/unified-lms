@@ -7,10 +7,12 @@
 
 require_relative "version"
 require_relative "error"
+require_relative "../../parser/blackboard/attempt"
 
 module UnifiedLms
   module EndpointBlackboard
     module AttemptBlackboard
+      include ParserBlackboard
       # Get the attempt receipt associated with the @param attemptReceiptIdParam
       #
       # Users with all the following entitlements may access this resource:
@@ -21,7 +23,8 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_submission(**params)
-        get("/learn/api/public/v1/attemptReceipts/#{params[:attemptReceiptId]}", **params)
+        get("/learn/api/public/v1/attemptReceipts/#{params[:attemptReceiptId]}", :blackboard, **params)
+        ParserBlackboard::get_submission(data)
       end
     end
   end

@@ -7,17 +7,20 @@
 
 require_relative "version"
 require_relative "error"
+require_relative "../../parser/blackboard/content"
 
 module UnifiedLms
   module EndpointBlackboard
     module ContentBlackboard
+      include ParserBlackboard
       # Lists top level content iteams in a course.
       #
       # @param params [Hash] Query string
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_assignments(**params)
-        get("/learn/api/public/v1/courses/#{params[:course_id]}/contents", **params)
+        get("/learn/api/public/v1/courses/#{params[:course_id]}/contents", :blackboard, **params)
+        ParserBlackboard::get_assignments(data)
       end
     end
   end

@@ -7,16 +7,19 @@
 
 require_relative "version"
 require_relative "error"
+require_relative "../../parser/blackboard/announcements"
 
 module UnifiedLms
   module EndpointBlackboard
     module AnnouncementBlackboard
+      include ParserBlackboard
       # Returns a list of course announcements for the specified course or organization.
       # @param params [Hash] Query string
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_announcements(**params)
-        get("/learn/api/public/v1/courses/#{params[:course_id]}/announcements", **params)
+        get("/learn/api/public/v1/courses/#{params[:course_id]}/announcements", :blackboard, **params)
+        ParserBlackboard::get_announcements(data)
       end
     end
   end
