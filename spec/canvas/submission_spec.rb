@@ -10,7 +10,8 @@ RSpec.describe UnifiedLms::Client do
     :canvas,
     redirect_uri: "https://example.com/",
     client_id: "example_id",
-    client_secret: "example_secret")
+    client_secret: "example_secret",
+    token: "example_token")
 
       #create the mock responce
       mock_response = '{
