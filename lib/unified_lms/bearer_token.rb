@@ -7,7 +7,8 @@ module UnifiedLms
 
     # Get a connection from Faraday to add a bearer token in the header
     def build_request(connection, **params)
-      connection.request :authorization, 'Bearer', params.delete(:token)
+      connection.authorization :Bearer, @token if @token
+      connection.headers['Authorization']
     end
   end
 end
