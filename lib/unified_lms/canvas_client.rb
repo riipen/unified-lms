@@ -26,7 +26,7 @@ module UnifiedLms
       if @token.nil?
         # get code from canvas
         params = {client_id: @client_id, response_type: "code", redirect_uri: @redirect_uri}.merge(params)
-        get_response = get("login/oauth2/auth", :canvas, **params)
+        get_response = get("/login/oauth2/auth", :canvas, **params)
 
         # get code value from response
         uri = URI.parse(get_response)
@@ -35,7 +35,8 @@ module UnifiedLms
         #
         # # get final access token
         params = {grant_type: @grant_type, client_secret: @client_secret, code: @code}.merge(params)
-        @token = post("/login/oauth2/token", :canvas, **params)
+        token_response = post("/login/oauth2/token", :canvas, **params)
+        @token = JSON.parse(token_response)['access_token']
       end
     end
   end
