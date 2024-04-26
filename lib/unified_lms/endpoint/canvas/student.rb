@@ -11,10 +11,8 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.students
       def get_students(**params)
-        params = { enrollment_type: "student" }.merge(params)
-        get("/api/v1/courses/#{params[:course_id]}/users", :canvas, **params)
-        json_data = JSON.parse(data)
-        ParserCanvas.get_students(json_data)
+        data = get("/api/v1/courses/#{params[:course_id]}/users", :canvas, **params)
+        ParserCanvas.get_students(data)
       end
     end
   end
