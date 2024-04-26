@@ -3,6 +3,7 @@ require_relative "endpoint/canvas/assignment"
 require_relative "endpoint/canvas/course"
 require_relative "endpoint/canvas/student"
 require_relative "endpoint/canvas/submission"
+require_relative "parser/canvas/assignments"
 
 module UnifiedLms
   module EndpointCanvas

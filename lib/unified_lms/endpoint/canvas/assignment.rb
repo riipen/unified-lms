@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module UnifiedLms
   module EndpointCanvas
     module AssignmentCanvas
