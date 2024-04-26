@@ -22,10 +22,10 @@ RSpec.describe UnifiedLms::Client do
        assignment_id: 24,
        assignment: nil,
        course: nil,
-       attempt: 1,
+       attempt: 3,
        posted_at: "2020-01-02T11:10:30Z",
        read_status: "read",
-       redo_request: true
+       redo_request: false
      }]
 
       stub_request(:get, "https://canvas.instructure.com/api/v1/courses/1/assignments/23/submissions/1?assignment_id=23&course_id=1&user_id=1").
@@ -42,12 +42,16 @@ RSpec.describe UnifiedLms::Client do
 
       # validate
       submission = JSON.parse(submissions[0])
+      submission1 = JSON.parse(submissions[1])
+
       expect(submission['assignment_id']) == 23
-      expect(JSON.parse(submissions[1])['assignment_id']) == 24
-      # expect(submission["assignment_id"]).to eq(23)
-      # expect(submission["attempt"]).to eq(1)
-      # expect(submission["read_status"]).to eq("read")
-      # expect(submission["redo_request"]).to eq("true")
+      expect(submission["attempt"]) == 1
+      expect(submission["read_status"]) == "read"
+      expect(submission["redo_request"]) == "true"
+      expect(submission1['assignment_id']) == 24
+      expect(submission["attempt"]) == 3
+      expect(submission["read_status"]) == "read"
+      expect(submission["redo_request"]) == "false"
     end
   end
 end
