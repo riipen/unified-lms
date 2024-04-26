@@ -8,10 +8,10 @@ module UnifiedLms
     # @return [Array<Hash>] Parsed response JSON
     # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.students
     def self.get_students(data)
-      data = JSON.parse(response)
+      parsed_data = JSON.parse(data)
       main_student_data = []
 
-      data["results"].each do |student|
+      parsed_data["results"].each do |student|
         main_student_data << {
           id: student["user"]["studentId"],
           Name: student["user"]["name"]["given"],
@@ -20,11 +20,11 @@ module UnifiedLms
           short_name: student["user"]["name"]["preferredDisplayName"],
           sis_user_id: student["user"]["studentId"],
           email: student["user"]["contact"]["institutionEmail"],
-        }
+        }.to_json
       end
 
       # Serialize consolidated data
-      render json: main_student_data
+      return  main_student_data
     end
   end
 end

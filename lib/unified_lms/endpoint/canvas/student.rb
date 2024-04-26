@@ -5,7 +5,6 @@ require_relative "../../parser/canvas/student"
 module UnifiedLms
   module EndpointCanvas
     module StudentCanvas
-      include ParserCanvas
       # Fetch a paginated list of students enrolled in this course.
       #
       # @param params [Hash] Query string

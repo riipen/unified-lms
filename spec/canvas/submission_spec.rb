@@ -44,10 +44,6 @@ RSpec.describe UnifiedLms::Client do
       submission = JSON.parse(submissions[0])
       expect(submission['assignment_id']) == 23
       expect(JSON.parse(submissions[1])['assignment_id']) == 24
-      # expect(submission["assignment_id"]).to eq(23)
-      # expect(submission["attempt"]).to eq(1)
-      # expect(submission["read_status"]).to eq("read")
-      # expect(submission["redo_request"]).to eq("true")
     end
   end
 end

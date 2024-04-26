@@ -16,11 +16,11 @@ module UnifiedLms
           id: assignment[:id],
           description: assignment[:description],
           course_id: assignment[:course_id],
-        }
+        }.to_json
       end
 
       # Serialize consolidated data
-      render json: main_student_data
+      return main_student_data
     end
   end
 end

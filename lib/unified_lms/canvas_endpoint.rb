@@ -11,5 +11,7 @@ module UnifiedLms
     include CourseCanvas
     include StudentCanvas
     include SubmissionCanvas
+
+    include ParserCanvas
   end
 end

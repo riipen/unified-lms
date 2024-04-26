@@ -22,14 +22,14 @@ module UnifiedLms
           parsed_course[:dataSourceId] = course["dataSourceId"]
           parsed_course[:termId] = course["termId"]
           parsed_course[:organization] = course["organization"]
-          parsed_data << parsed_course
+          parsed_data << parsed_course.to_json
         end
 
-      render json: parsed_data
+        return parsed_data
     rescue JSON::ParserError => e
       # Handle JSON parsing errors
       puts "Error parsing JSON response: #{e.message}"
-      JSON.generate([])
-      end
+      return JSON.generate([])
+    end
   end
 end

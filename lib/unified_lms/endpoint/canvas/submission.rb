@@ -4,7 +4,6 @@ require_relative "../../parser/canvas/submission"
 module UnifiedLms
   module EndpointCanvas
     module SubmissionCanvas
-      include ParserCanvas
       # Get a single submission, based on course id, assignment id and user id.
       #
       # @param params [Hash] Query string

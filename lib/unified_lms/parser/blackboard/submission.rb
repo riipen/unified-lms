@@ -20,11 +20,11 @@ module UnifiedLms
           score: submission[:score],
           body: submission[:body],
           grade: submission[:grade]
-        }
+        }.to_json
       end
 
       # Serialize consolidated data
-      render json: main_submission_data
+      return main_submission_data
     end
   end
 end

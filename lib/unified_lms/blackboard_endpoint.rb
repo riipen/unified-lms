@@ -11,5 +11,7 @@ module UnifiedLms
     include ContentBlackboard
     include CourseBlackboard
     include StudentBlackboard
+
+    include ParserBlackboard
   end
 end
