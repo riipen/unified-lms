@@ -12,14 +12,13 @@ require_relative "../../parser/blackboard/course"
 module UnifiedLms
   module EndpointBlackboard
     module CourseBlackboard
-      include ParserBlackboard
       # Returns a list of courses and organizations.
       #
       # @param params [Hash] Query string
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi
       def get_courses(**params)
-        get("/learn/api/public/v3/courses", :blackboard, **params)
+        data = get("/learn/api/public/v3/courses", :blackboard, **params)
         ParserBlackboard::get_courses(data)
       end
     end

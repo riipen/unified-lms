@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 require "unified_lms"
+require 'bundler/setup'
+require 'pry'
+require 'webmock/rspec'
+
+WebMock.disable_net_connect!
+
+Dir[File.expand_path('canvas/support/**/*.rb', __dir__)].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

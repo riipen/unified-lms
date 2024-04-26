@@ -17,11 +17,11 @@ module UnifiedLms
           title: announcement[:title],
           message: announcement[:message],
           posted_at: announcement[:posted_at]
-        }
+        }.to_json
       end
 
       # Serialize consolidated data
-      render json: main_announcements_data
+      return main_announcements_data
     end
   end
 end

@@ -10,21 +10,22 @@ module UnifiedLms
     # @see https://canvas.instructure.com/doc/api/all_resources.html#method.courses.students
     def self.get_students(data)
       main_student_data = []
+      parsed_data = JSON.parse(data)
 
-      JSON.parse(data).each do |student|
+      parsed_data.each do |student|
         main_student_data << {
-          id: student[:id],
-          name: student[:name],
-          last_name: student[:last_name],
-          first_name: student[:first_name],
-          short_name: student[:short_name],
-          sis_user_id: student[:sis_user_id],
-          email: student[:email],
-        }
+          "id": student['id'],
+          "name": student['name'],
+          "last_name": student['last_name'],
+          "first_name": student['first_name'],
+          "short_name": student['short_name'],
+          "sis_user_id": student['sis_user_id'],
+          "email": student['email']
+        }.to_json
       end
 
       # Serialize consolidated data
-      render json: main_student_data
+      return main_student_data
     end
   end
 end
