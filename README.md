@@ -19,7 +19,7 @@ If bundler is not being used to manage dependencies, install the gem by executin
 ```ruby
 # Authenticating with client id and secret
 
-canvas_client = UnifiedLms::Client.new(
+canvas_client = UnifiedLms::Client.create_client(
     :canvas,
     redirect_uri: "https://example.com",
     client_id: "example_id",
@@ -29,8 +29,11 @@ canvas_client.authenticate
 
 # Authenticating directly with token
 canvas_client = UnifiedLms::Client.create_client(
-    :canvas, 
-    token: "token_example"
+  :canvas,
+  redirect_uri: "https://example.com",
+  client_id: "example_id",
+  client_secret: "example_secret",
+  token: 'example_token'
 )
 canvas_client.authenticate
 ```
