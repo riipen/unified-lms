@@ -7,6 +7,7 @@
 
 require_relative "version"
 require_relative "error"
+require_relative "../../parser/blackboard/student"
 
 module UnifiedLms
   module EndpointBlackboard
@@ -24,7 +25,8 @@ module UnifiedLms
       # @return [Array<Hash>] Parsed response JSON
       # @see https://developer.blackboard.com/portal/displayApi/Learn?_gl=1*a4tvl2*_ga*NDEzMzIwNDQ1LjE3MDkxNjg2MDM.*_ga_GSZJ2M400B*MTcwOTE2ODYwMy4xLjAuMTcwOTE2ODYwMy42MC4wLjA.
       def get_students(**params)
-        get("/learn/api/public/v1/courses/#{params[:course_id]}/users", **params)
+        data = get("/learn/api/public/v1/courses/#{params[:course_id]}/users", :blackboard, **params)
+        ParserBlackboard::get_students(data)
       end
     end
   end

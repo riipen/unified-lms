@@ -11,7 +11,13 @@ module UnifiedLms
         require_relative 'bearer_token'
         BearerToken.new
       when :blackboard
-        puts "Blackboard Request"
+        if @token.nil?
+          require_relative 'basic_auth'
+          BasicAuth.new
+        else
+          require_relative 'bearer_token'
+          BearerToken.new
+        end
       else
         raise ArgumentError, "Invalid request type"
       end
